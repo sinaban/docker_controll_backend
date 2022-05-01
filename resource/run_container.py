@@ -23,6 +23,6 @@ class RunNewContainer(Resource):
             return id
 
     def post(self,name):
-        command = f'''docker run --rm --network dockerbot_botnetwork --name {name} tradingapp/bot'''.split()
+        command = f'''docker run --rm --network botdocker_botnetwork --name {name} tradingapp/bot'''.split()
         resp = self.run_command(command)
         return {"message" : resp} 
