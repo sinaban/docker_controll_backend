@@ -1,8 +1,9 @@
+
 from flask import Flask, send_from_directory
 from flask_restful import Api
 
 from flask_cors import CORS
-from resource.run_container import RunNewContainer
+from resource.run_container import RunNewContainer,StopContainer
 
 
 app = Flask(__name__)
@@ -13,7 +14,7 @@ app.config['DEBUG'] = True
 api = Api(app)
 
 api.add_resource(RunNewContainer, '/runnew/<string:name>')
-
+api.add_resource(StopContainer, '/stopcontainer/<string:name>')
 if __name__ == '__main__':
 
 
